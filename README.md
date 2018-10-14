@@ -40,3 +40,14 @@ if entity processing throughput became a bottleneck.
 All in all a fun exercise and I think I might incorporate this pattern
 more to see how I could round off those rough corners and make it
 work for me.
+
+## Performance ##
+
+I spent a few minutes doing some profiling and I am pleased with the
+results. This is a very static program in terms of memory usage so the
+GC doesn't have to do any work which keeps the FPS stable. It seems
+that, for FireFox at least, more time is spent rendering the DOM of my
+page than updating my game loop and rendering my scene combined.
+
+I suspect a using a fixed object pool with this pattern would yield a
+high performance engine.
